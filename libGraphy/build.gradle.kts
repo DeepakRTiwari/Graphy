@@ -1,11 +1,15 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.compose.compiler)
+//    alias(libs.plugins.maven.publish)
+    id("maven-publish")
+
 }
 
 android {
     namespace = "com.library.libgraphy"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -30,6 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
 }
 
 dependencies {
@@ -45,6 +50,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
 
-
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                group = "com.github.DeepakRTiwari"
+                artifactId = "Graphy"
+                version = "1.0.0"
+                from(components["release"])
+            }
+        }
+    }
 }

@@ -28,45 +28,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathMeasure
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.library.libgraphy.data.RoundedRectangularProgressIndicator
+import kotlinx.coroutines.delay
 
 
-/*@Composable
-fun RectangularProgressIndicatorPreview() {
-    Box(
-        modifier = Modifier.size(400.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        var progress by remember { mutableFloatStateOf(0.5f) }
-
-        val animatedProgress = animateFloatAsState(
-            targetValue = progress,
-            animationSpec = tween(5000, 1000, FastOutSlowInEasing),
-            label = "progress"
-        )
-
-        RoundedRectangularProgressIndicator(
-            progress = { animatedProgress.value },
-            roundedRectangularProgressIndicator = RoundedRectangularProgressIndicator(),
-            modifier = Modifier
-                .size(200.dp)
-                .padding(4.dp)
-        ) {
-            Text("Your Content", color = Color.White)
-        }
-
-        LaunchedEffect(Unit) {
-            while (progress < 0.5f) {
-                progress += 0.01f // Increment progress in steps
-                delay(50L) // Delay for smooth animation
-            }
-        }
-
-    }
-}*/
 
 @Composable
 fun RoundedRectangularProgressIndicator(
